@@ -9,10 +9,6 @@ public class GamePlay {
 
     protected int lives = 8;
 
-    public int getLives() {
-        return lives;
-    }
-
     public void decrementLives() {
         lives--;
     }
@@ -35,6 +31,7 @@ public class GamePlay {
 
             if (!checkInput(charArr, input, userWord, usedChars)) {
                 decrementLives();
+                displayHangman(lives);
             }
 
             if (Arrays.equals(userWord, charArr)) {
@@ -48,11 +45,5 @@ public class GamePlay {
             }
 
         }
-    }
-
-    public static void main(String[] args) {
-        GamePlay hangman = new GamePlay();
-        hangman.playGame();
-
     }
 }

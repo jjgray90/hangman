@@ -1,7 +1,10 @@
 package me.jjgray;
 
+import me.jjgray.hangman.GamePlay;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        GamePlay hangman = new GamePlay();
+        hangman.playGame();
     }
 }

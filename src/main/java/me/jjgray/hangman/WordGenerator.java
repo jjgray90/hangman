@@ -5,7 +5,7 @@ import java.util.Random;
 public class WordGenerator {
     Random r = new Random();
 
-    private String[] words = {"flower", "triangle", "sunglasses", "elephant", "grass", "chicken"};
+    private final String[] words = {"flower", "triangle", "sunglasses", "elephant", "grass", "chicken"};
 
 
     public  String getWord() {
