@@ -1,8 +1,8 @@
 package me.jjgray.hangman;
 
-public abstract class HangmanDrawing {
+public interface HangmanDrawing {
 
-    static String state_1 =
+     String state_1 =
             " \n"
                     + " \n"
                     + " \n"
@@ -13,7 +13,7 @@ public abstract class HangmanDrawing {
             + "_________________"
             ;
 
-    static String state_2 =
+     String state_2 =
             " \n"
             + "        |\n"
             + "        |\n"
@@ -24,7 +24,7 @@ public abstract class HangmanDrawing {
             + "________|________"
             ;
 
-    static String state_3 =
+     String state_3 =
               "        _________\n"
             + "        |/\n"
             + "        |\n"
@@ -36,7 +36,7 @@ public abstract class HangmanDrawing {
             ;
 
 
-    static String state_4 =
+     String state_4 =
               "        _________\n"
             + "        |/       |\n"
             + "        |\n"
@@ -47,7 +47,7 @@ public abstract class HangmanDrawing {
             + "________|________"
             ;
 
-    static String state_5 =
+     String state_5 =
               "        _________\n"
             + "        |/       |\n"
             + "        |       (_)\n"
@@ -58,7 +58,7 @@ public abstract class HangmanDrawing {
             + "________|________"
             ;
 
-    static String state_6 =
+     String state_6 =
               "        _________\n"
             + "        |/       |\n"
             + "        |       (_)\n"
@@ -68,7 +68,7 @@ public abstract class HangmanDrawing {
             + "        |\n"
             + "________|________"
             ;
-    static String state_7 =
+     String state_7 =
               "        _________\n"
             + "        |/       |\n"
             + "        |       (_)\n"
@@ -79,7 +79,7 @@ public abstract class HangmanDrawing {
             + "________|________"
             ;
 
-    static String state_8 =
+     String state_8 =
              "        _________\n"
            + "        |/       |\n"
            + "        |       (_)\n"

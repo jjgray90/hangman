@@ -11,7 +11,7 @@ public class DisplayResults {
     public static void displayCurrentGame(String[] userWord, ArrayList<String> usedChars, int lives) {
         System.out.println(String.join(" ", userWord));
         System.out.println("Used characters: " + usedChars);
-        System.out.println(lives + " lives left");
+        System.out.println(lives);
     }
 
     public static void displayHangman(int lives) {
@@ -49,7 +49,7 @@ public class DisplayResults {
         if (usedChars.contains(input)) {
             System.out.println("You've already used that character!");
             return true;
-        } else {
+        }  else {
             boolean letterFound = false;
             for (int i = 0; i < charArr.length; i++) {
                 if (input.equals(charArr[i])) {

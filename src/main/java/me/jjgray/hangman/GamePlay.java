@@ -2,15 +2,17 @@ package me.jjgray.hangman;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 import static me.jjgray.hangman.DisplayResults.*;
 
 public class GamePlay {
 
-    protected int lives = 8;
+    private int lives = 8;
 
     public void decrementLives() {
         lives--;
+        displayHangman(lives);
     }
 
     public void playGame() {
@@ -19,7 +21,6 @@ public class GamePlay {
         String[] userWord = new String[word.length()];
         Arrays.fill(userWord, "_");
         ArrayList<String> usedChars = new ArrayList<>();
-        String input = "";
 
 
         System.out.println(word);
@@ -27,11 +28,10 @@ public class GamePlay {
 
         while (true) {
             displayCurrentGame(userWord, usedChars, lives);
-            input = new UserInteraction().getInput();
+            String input = new UserInteraction().getInput();
 
-            if (!checkInput(charArr, input, userWord, usedChars)) {
+            if (!input.equals("") && !checkInput(charArr, input, userWord, usedChars)) {
                 decrementLives();
-                displayHangman(lives);
             }
 
             if (Arrays.equals(userWord, charArr)) {
