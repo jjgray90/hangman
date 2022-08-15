@@ -5,6 +5,9 @@ import java.util.regex.Pattern;
 
 import java.util.Scanner;
 
+import static me.jjgray.hangman.GameUtils.*;
+
+
 public class UserInteraction {
 
     public String getInput() {
@@ -17,7 +20,7 @@ public class UserInteraction {
 
 
         if (input.length() >= 2 || !matchFound) {
-            System.out.println("\u001B[41m"+ "Invalid entry, please enter one letter" + "\u001B[0m");
+            System.out.println(ANSI_RED + "Invalid entry, please enter a single letter" + ANSI_RESET);
             input = "";
         }
         return input;

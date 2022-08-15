@@ -2,8 +2,8 @@ package me.jjgray.hangman;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
 
+import static me.jjgray.hangman.GameUtils.*;
 import static me.jjgray.hangman.DisplayResults.*;
 
 public class GamePlay {
@@ -35,15 +35,14 @@ public class GamePlay {
             }
 
             if (Arrays.equals(userWord, charArr)) {
-                System.out.println("Congrats!");
+                System.out.println(ANSI_WHITE + ANSI_GREEN_BG + " Congrats! We live to fight another day " + ANSI_RESET);
                 break;
             }
 
             if (lives == 0) {
-                System.out.println("Game Over");
+                System.out.println(ANSI_WHITE + ANSI_RED_BG + " Game Over " + ANSI_RESET);
                 break;
             }
-
         }
     }
 }

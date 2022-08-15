@@ -3,7 +3,7 @@ package me.jjgray.hangman;
 
 import java.util.ArrayList;
 
-import static me.jjgray.hangman.HangmanDrawing.*;
+import static me.jjgray.hangman.GameUtils.*;
 
 
 public class DisplayResults {
@@ -11,7 +11,6 @@ public class DisplayResults {
     public static void displayCurrentGame(String[] userWord, ArrayList<String> usedChars, int lives) {
         System.out.println(String.join(" ", userWord));
         System.out.println("Used characters: " + usedChars);
-        System.out.println(lives);
     }
 
     public static void displayHangman(int lives) {
@@ -47,7 +46,7 @@ public class DisplayResults {
     public static boolean checkInput(String[] charArr, String input, String[] userWord, ArrayList<String> usedChars) {
 
         if (usedChars.contains(input)) {
-            System.out.println("You've already used that character!");
+            System.out.println(ANSI_RED + "You've already used that character!" + ANSI_RESET);
             return true;
         }  else {
             boolean letterFound = false;
