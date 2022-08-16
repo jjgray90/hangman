@@ -23,7 +23,6 @@ public class GamePlay {
         ArrayList<String> usedChars = new ArrayList<>();
 
 
-        System.out.println(word);
         System.out.println("Welcome to hangman");
 
         while (true) {
