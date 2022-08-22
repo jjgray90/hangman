@@ -8,6 +8,11 @@ import static me.jjgray.hangman.DisplayResults.*;
 
 public class GamePlay {
 
+    private final UserInteraction userInteraction = new UserInteraction();
+    private final String word = new WordGenerator().getWord();
+    private final String[] charArr = word.split("");
+    private final String[] userWord = new String[word.length()];
+    private final ArrayList<String> usedChars = new ArrayList<>();
     private int lives = 8;
 
     public void decrementLives() {
@@ -15,25 +20,39 @@ public class GamePlay {
         displayHangman(lives);
     }
 
+    public boolean checkInput(String userInput) {
+
+        if (usedChars.contains(userInput)) {
+            System.out.println(ANSI_RED + "You've already used that character!" + ANSI_RESET);
+            return true;
+        } else {
+            boolean letterFound = false;
+            for (int i = 0; i < charArr.length; i++) {
+                if (userInput.equals(charArr[i])) {
+                    userWord[i] = charArr[i];
+                    letterFound = true;
+                }
+            }
+            usedChars.add(userInput);
+            return letterFound;
+        }
+    }
+
     public void playGame() {
-        String word = new WordGenerator().getWord();
-        String[] charArr = word.split("");
-        String[] userWord = new String[word.length()];
+
         Arrays.fill(userWord, "_");
-        ArrayList<String> usedChars = new ArrayList<>();
-
-
         System.out.println("Welcome to hangman");
 
         while (true) {
-            displayCurrentGame(userWord, usedChars, lives);
-            String input = new UserInteraction().getInput();
+            displayCurrentGame(userWord, usedChars);
+            String userInput = userInteraction.getInput();
 
-            if (!input.equals("") && !checkInput(charArr, input, userWord, usedChars)) {
+            if (!userInput.equals("") && !checkInput(userInput)) {
                 decrementLives();
             }
 
             if (Arrays.equals(userWord, charArr)) {
+                displayCurrentGame(userWord, usedChars);
                 System.out.println(ANSI_WHITE + ANSI_GREEN_BG + " Congrats! We live to fight another day " + ANSI_RESET);
                 break;
             }

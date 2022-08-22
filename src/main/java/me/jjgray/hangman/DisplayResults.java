@@ -8,7 +8,7 @@ import static me.jjgray.hangman.GameUtils.*;
 
 public class DisplayResults {
 
-    public static void displayCurrentGame(String[] userWord, ArrayList<String> usedChars, int lives) {
+    public static void displayCurrentGame(String[] userWord, ArrayList<String> usedChars) {
         System.out.println(String.join(" ", userWord));
         System.out.println("Used characters: " + usedChars);
     }
@@ -41,23 +41,5 @@ public class DisplayResults {
                 break;
         }
 
-    }
-
-    public static boolean checkInput(String[] charArr, String input, String[] userWord, ArrayList<String> usedChars) {
-
-        if (usedChars.contains(input)) {
-            System.out.println(ANSI_RED + "You've already used that character!" + ANSI_RESET);
-            return true;
-        }  else {
-            boolean letterFound = false;
-            for (int i = 0; i < charArr.length; i++) {
-                if (input.equals(charArr[i])) {
-                    userWord[i] = charArr[i];
-                    letterFound = true;
-                }
-            }
-            usedChars.add(input);
-            return letterFound;
-        }
     }
 }
